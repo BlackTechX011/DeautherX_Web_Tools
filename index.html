@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>DeautherX Web Tool</title>
+  <title>DeautherX installer</title>
   <meta
   name="description"
-  content="Easily allow users to install DeautherX firmware on the web."
+  content="Easily allow users to install Squeezelite-ESP32 firmware on the web."
   />
   <meta name="viewport" content="width=device-width" />
   <meta name="color-scheme" content="dark light" />
@@ -26,7 +25,7 @@
     color: #bfbfbb;
     padding: 0.2em 1em;
     border-radius: 3px;
-    border-left: solid #0ba8cf 5px;
+	  border-left: solid #0ba8cf 5px;
     font-weight: 100;
   }
   footer{
@@ -45,41 +44,44 @@
     padding: 12px;
   }
 
-}
-h1 {
-    font-size: 1.7rem;
-    margin-top: 1rem;
-    background: #2f3136;
-    color: #bfbfbb;
-    padding: 0.2em 1em;
-    border-radius: 3px;
-    border-left: solid #0ba8cf 5px;
-    font-weight: 100;
-}
+
+
 h2 {
-    font-size: 1.7rem;
-    margin-top: 1rem;
-    background: #2f3136;
-    color: #bfbfbb;
-    padding: 0.2em 1em;
-    border-radius: 3px;
-    border-left: solid #0ba8cf 5px;
-    font-weight: 100;
+  margin-top: 2em;
+}
+h4 {
+  font-size: 1rem;
+  margin-top: 1rem;
+  background: #2f3136;
+  color: #bfbfbb;
+  padding: 0.2em 1em;
+  border-radius: 3px;
+  border-left: solid #0ba8cf 5px;
+  font-weight: 100;
+}
+h5 {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  background: #2f3136;
+  color: #bfbfbb;
+  padding: 0.2em 1em;
+  border-radius: 3px;
+  border-left: solid #0ba8cf 5px;
+  font-weight: 100;
 }
 
 td {
-  height: 50px;
-  vertical-align: center;
+  height: 9.5px;
+  vertical-align: left;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  background: #2f3136;
+  color: #bfbfbb;
+  border-radius: 1px;
+  border-left: solid #0ba8cf 5px;
 }
 h3 {
-    font-size: 1.7rem;
-    margin-top: 1rem;
-    background: #2f3136;
-    color: #bfbfbb;
-    padding: 0.2em 1em;
-    border-radius: 3px;
-    border-left: solid #0ba8cf 5px;
-    font-weight: 100;
+  margin-top: 1.5em;
 }
 a {
   color: #03a9f4;
@@ -169,7 +171,7 @@ img{
 <header>
 
 </header>
-  <h1 class="logo">DeautherX Web Tool<br> </h1>
+  <h1 class="logo">DeautherX Installer<br> </h1>
 
 
   <table align="center">
@@ -200,18 +202,33 @@ img{
   </table>
 
   <div id="descriptif"></div>
-
+<h4>
   <div id="selection">
     Selected Device : <span id="device"></span><br>
     Selected Application : <span id="application"></span>
   </div>
+</h4>
 
-
-  <p class="button-row" align="center">
+<h4>
+    <p class="button-row" align="center" >
     <esp-web-install-button class="upload-button"></esp-web-install-button>
-
-
-
+</h4>
+<h5>How To Flash DeautherX firmware to Esp8266 based boad</h5>
+<ul>
+  <li>Select your esp8266 boad </li>
+  <li>Select display type </li>
+  <li>Connect your ESP8266 board via USB</li>
+  <li>Click Connect and Select the serial port of your ESP</li>
+  <li>on Device Dashboard Click on install</li>
+</ul>  
+<h5>How To open web based serial montor</h5>
+<ul>
+  <li>Select your esp8266 boad </li>
+  <li>Select display type (it is not important to select correct display type.it is just because without it program will not run)</li>
+  <li>Connect your ESP8266 board via USB</li>
+  <li>Click Connect and Select the serial port of your ESP</li>
+  <li>on Device Dashboard Click on Logs and console</li>
+</ul>
     <script type="module" src="https://unpkg.com/esp-web-tools@9.1.1/dist/web/install-button.js?module"></script>
 
     <script>
@@ -252,8 +269,6 @@ img{
     </script>
 
     <footer>
-	<center>
     </footer>
   </body>
-
   </html>
