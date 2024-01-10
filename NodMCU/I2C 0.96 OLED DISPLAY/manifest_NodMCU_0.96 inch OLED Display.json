@@ -1,0 +1,12 @@
+{
+  "name": "DeautherX_SH1106_I2C_OLED_0.96",
+  "version": "1.0",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [
+        { "path": "./DeautherX_SSD1306_I2C_OLED0.96.bin", "offset": 0}
+      ]
+    }
+  ]
+}
