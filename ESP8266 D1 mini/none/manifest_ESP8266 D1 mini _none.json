@@ -1,0 +1,12 @@
+{
+  "name": "DeautherX_WEB",
+  "version": "1.0",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [
+        { "path": "./none.bin", "offset": 0}
+      ]
+    }
+  ]
+}
