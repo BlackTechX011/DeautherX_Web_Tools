@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>DeautherX installer</title>
+  <meta
+  name="description"
+  content="Easily allow users to install Squeezelite-ESP32 firmware on the web."
+  />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="color-scheme" content="dark light" />
+
+  <style>
+  header{
+    background-color: #6EC1E4;
+    border-top: 1px solid #ccc;
+    padding-top: 24px;
+    text-align: center;
+
+  }
+  .logo {
+    text-align: center;
+  }
+  footer{
+ 
+  }
+  body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, sans-serif;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 12px;
+  }
+
+}
+h2 {
+  margin-top: 2em;
+}
+
+td {
+  height: 50px;
+  vertical-align: center;
+}
+h3 {
+  margin-top: 1.5em;
+}
+a {
+  color: #03a9f4;
+}
+.invisible {
+  visibility: hidden;
+}
+.hidden {
+  display: none;
+}
+esp-web-install-button[install-unsupported] {
+  visibility: inherit;
+}
+.content pre {
+  max-width: 100%;
+  overflow-y: scroll;
+}
+.footer {
+  margin-top: 24px;
+
+  padding-top: 24px;
+  text-align: center;
+}
+.footer .initiative {
+  font-style: italic;
+  margin-top: 16px;
+}
+table {
+  border-spacing:  0 15px;
+  display: table;
+
+}
+td, tr, th{
+  padding: 8px;
+  vertical-align:middle;
+
+}
+
+img{
+  width:150px;
+}
+
+
+.m{
+  grid-column: 1;
+  height: 220px;
+  width:300px;
+  text-align: center;
+}
+.s{
+  height: 200px;
+  width:300px;
+}
+
+.l{
+  width:180px;
+  height: 200px;
+
+}
+.explication{
+  width:auto;
+  height: auto;
+  padding: 20px;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+    color: #fff;
+  }
+  a {
+    color: #58a6ff;
+  }
+}
+</style>
+
+
+</head>
+
+
+
+
+
+
+<body>
+<header>
+
+</header>
+  <h1 class="logo">DeautherX Installer<br> </h1>
+
+
+  <table align="center">
+    <tr>
+      <td>
+        <label>Choose a device:</label>
+      </td>
+      <td>
+        <label>Choose display type:</label>
+      </td>
+    </tr>
+    <tr>
+      <td >
+        <div class="device-form">
+          <input type="radio" name="device" value="NodMCU" checked onclick="loadContent()"> NodMCU
+        </div>
+      
+      </td>
+      <td>
+        <div class="device-form">
+          <input type="radio" name="application" value="1.3 inch OLED Display" onclick="loadContent()"> 1.3 inch OLED Display
+        </div>
+        <div class="device-form">
+          <input type="radio" name="application" value="0.96 inch OLED Display" onclick="loadContent()"> 0.96 inch OLED Display
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div id="descriptif"></div>
+
+  <div id="selection">
+    Selected Device : <span id="device"></span><br>
+    Selected Application : <span id="application"></span>
+  </div>
+
+  <p class="button-row" align="center">
+    <esp-web-install-button class="upload-button"></esp-web-install-button>
+
+
+
+
+    <script type="module" src="https://unpkg.com/esp-web-tools@9.1.1/dist/web/install-button.js?module"></script>
+
+    <script>
+
+    function loadContent() {
+      var device = document.querySelector('input[name = "device"]:checked').value;
+      var application = document.querySelector('input[name = "application"]:checked').value;
+
+      document.getElementById("device").innerHTML = device;
+      document.getElementById("application").innerHTML = application;
+
+      fetch(`./${device}/${application}/${application}.html`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        } else {
+          const button = document.querySelector('esp-web-install-button');
+          button.manifest = `./${device}/${application}/manifest_${device}_${application}.json`;
+          button.classList.remove('invisible');
+          button.style.visibility = "visible";
+          return response.text()
+        }
+      })
+      .then(data => {
+        document.getElementById('descriptif').innerHTML = data;
+        // Enlever le bouton upload-button si le fichier n'est pas trouvé
+
+
+      })
+      .catch(error => {
+        console.log(error);
+        const button = document.querySelector('esp-web-install-button');
+        document.getElementById('descriptif').innerHTML = 'This project as not yet been ported for this device please let us know if you want it !';
+
+        button.style.visibility = "hidden";
+      });
+    }
+    </script>
+
+    <footer>
+	<center>
+<p>Installer powered by <a href="https://esphome.github.io/esp-web-tools/">ESP Web Tools</a></p>
+    </footer>
+  </body>
+
+  </html>
