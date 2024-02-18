@@ -1,6 +1,6 @@
 {
-  "name": "DeautherX for 1.3 OLED Display",
-  "version": "1.6.0",
+  "name": "DeautherX for 1.3 I2C OLED Display",
+  "version": "1",
   "builds": [
     {
       "chipFamily": "ESP8266",
