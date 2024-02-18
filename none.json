@@ -1,6 +1,6 @@
 {
-  "name": "DeautherX none",
-  "version": "2.0.0",
+  "name": "DeautherX without Display",
+  "version": "1",
   "builds": [
     {
       "chipFamily": "ESP8266",
