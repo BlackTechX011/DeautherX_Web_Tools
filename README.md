@@ -3,7 +3,7 @@
 Explore the powerful capabilities of the DeautherX Web Tool by visiting [DeautherX Web Tools](https://blacktechx011.github.io/DeautherX_Web_Tools/), where you can effortlessly flash the [DeautherX](https://github.com/BlackTechX011/DeauherX) firmware onto any ESP8266-based board.
 
 
-### [Video Tutorial](https://www.youtube.com/watch?v=qQUHb2XycNw)
+## [Video Tutorial](https://www.youtube.com/watch?v=qQUHb2XycNw)
 
 ## How To Flash DeautherX Firmware to ESP8266-based Board
 
