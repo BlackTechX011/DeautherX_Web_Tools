@@ -3,7 +3,7 @@
 Explore the powerful capabilities of the DeautherX Web Tool by visiting [DeautherX Web Tools](https://blacktechx011.github.io/DeautherX_Web_Tools/), where you can effortlessly flash the [DeautherX](https://github.com/BlackTechX011/DeauherX) firmware onto any ESP8266-based board.
 
 
-## [Video Tutorial](https://www.youtube.com/watch?v=qQUHb2XycNw)
+## [Video Tutorial  "of old Version"](https://www.youtube.com/watch?v=qQUHb2XycNw)
 
 ## How To Flash DeautherX Firmware to ESP8266-based Board
 
@@ -20,3 +20,7 @@ Explore the powerful capabilities of the DeautherX Web Tool by visiting [Deauthe
 3. Connect your ESP8266 board via USB.
 4. Click "Connect" and choose the serial port of your ESP.
 5. On the Device Dashboard, click "Logs and Console."
+
+### screenshot( new version )
+![home](https://github.com/BlackTechX011/DeautherX_Web_Tools/blob/main/home.png)
+![home2](https://github.com/BlackTechX011/DeautherX_Web_Tools/blob/main/home2.png)
