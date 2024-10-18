@@ -1,213 +1,268 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DeautherX Web Tools</title>
-  <meta
-  name="description"
-  content="Easily allow users to install DeautherX firmware on the web."
-  />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Easily allow users to install DeautherX firmware on the web." />
   <meta name="color-scheme" content="dark light" />
-<style>
-  header{
-    background-color: #6EC1E4;
-    border-top: 1px solid #ccc;
-    padding-top: 24px;
-    text-align: center;
 
-  }
-  .logo {
-    font-size: 1.7rem;
-    margin-top: 1rem;
-    color: #bfbfbb;
-    padding: 0.2em 1em;
-    border-radius: 3px;
-	  border-left: solid #0ba8cf 5px;
-    font-weight: bold;
-  }
-  footer{
- 
-  }
-  body {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Ubuntu, sans-serif;
-    padding: 0;
-    margin: 0;
-    line-height: 1.4;
-  }
-  .content {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 12px;
-  }
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-h2 {
-  margin-top: 2em;
-}
-h4 {
-  font-size: 1rem;
-  margin-top: 1rem;
-  color: #bfbfbb;
-  padding: 0.2em 1em;
-  border-radius: 3px;
-  border-left: solid #0ba8cf 5px;
-  font-weight: bold;
-}
-h5 {
-  display: block;
-  color: #ffffff;
-  font-size: 1.17em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-  padding: 0.2em 1em;
-  border-radius: 3px;
-  border-left: solid #0ba8cf 5px;
-}
+    header {
+      background-color: #007BFF;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
 
-td {
-  height: 9.5px;
-  vertical-align: left;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  color: #bfbfbb;
-  border-radius: 1px;
-  border-left: solid #0ba8cf 5px;
-}
-h3 {
-  margin-top: 1.5em;
-}
-a {
-  color: #03a9f4;
-}
-.invisible {
-  visibility: hidden;
-}
-.hidden {
-  display: none;
-}
-esp-web-install-button[install-unsupported] {
-  visibility: inherit;
-}
-.content pre {
-  max-width: 100%;
-  overflow-y: scroll;
-}
-.footer {
-  margin-top: 24px;
+    h1.logo {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
 
-  padding-top: 24px;
-  text-align: center;
-}
-.footer .initiative {
-  font-style: italic;
-  margin-top: 16px;
-}
-table {
-  border-spacing:  0 15px;
-  display: table;
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-}
-td, tr, th{
-  padding: 8px;
-  vertical-align:middle;
-  
+    h2,
+    h5 {
+      margin-top: 1.5rem;
+      color: #333;
+      font-weight: 600;
+    }
 
-}
+    .device-form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #f0f4f8;
+      border-radius: 8px;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease;
+    }
 
-img{
-  width:150px;
-}
+    .device-form input {
+      margin-left: 10px;
+    }
 
+    .device-form label {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #333;
+    }
 
-.m{
-  grid-column: 1;
-  height: 220px;
-  width:300px;
-  text-align: center;
-}
-.s{
-  height: 200px;
-  width:300px;
-}
+    /* Custom Button */
+    .button-row esp-web-install-button {
+     
+      background-color: #007bff;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-.l{
-  width:180px;
-  height: 200px;
+    .button-row esp-web-install-button:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+    }
 
-}
-.explication{
-  width:auto;
-  height: auto;
-  padding: 20px;
+    ul {
+      padding-left: 20px;
+    }
 
-}
+    ul li {
+      padding: 10px 0;
+      font-size: 1rem;
+      color: #666;
+      transition: color 0.3s ease;
+    }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #333;
-    color: #fff;
-  }
-  a {
-    color: #2e2e2e;
-  }
-}
-</style>
+    a {
+      color: #fffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #;
+      color: #fff;
+      font-size: 1.3rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .fa {
+      margin-right: 8px;
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1e1e1e;
+        color: #f5f5f5;
+      }
+
+      header {
+        background-color: #0a84ff;
+      }
+
+      .content {
+        background-color: #333;
+      }
+
+      h2,
+      h5,
+      label,
+      li {
+        color: #f5f5f5;
+      }
+
+      footer {
+        background-color: #0a84ff;
+      }
+
+      .device-form {
+        background-color: #444;
+      }
+
+      .button-row esp-web-install-button {
+        background-color: #0a84ff;
+      }
+
+      .button-row esp-web-install-button:hover {
+        background-color: #0073e6;
+      }
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .content {
+        padding: 20px;
+      }
+
+      .device-form {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1.logo {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-</header>
-<h1 class="logo">DeautherX web Tools<br> </h1>
-  <table align="center">
-    <tr>
-      <td>
-        <label>Choose display type:</label>
-      </td>
-    </tr>
-      <td>
-        <div class="device-form">
-          <input type="radio" name="type" value="13" /> 1.3 inch OLED Display
-          <input type="radio" name="type" value="096" /> 0.96 inch OLED Display
-          <p>You can use DeautherX without display or button using Web Interface</p>  
+  <header>
+    <h1 class="logo fade-in">DeautherX Web Tools</h1>
+  </header>
+
+  <div class="content fade-in">
+    <h2><i class="fa fa-cogs"></i> Choose Display Type</h2>
+    <div class="device-form">
+      <label for="display-type"><i class="fa fa-desktop"></i> Display Options:</label>
+      <div>
+        <input type="radio" name="type" value="13" id="display-13" />
+        <label for="display-13">1.3 inch OLED Display</label>
+        <br />
+        <input type="radio" name="type" value="096" id="display-096" />
+        <label for="display-096">0.96 inch OLED Display</label>
       </div>
-      </td>
-    </tr>
-  </table>
-  <div id="descriptif"></div>
-<h4>
-    <p class="button-row" align="center" >
-    <esp-web-install-button class="invisible"></esp-web-install-button></p>
-</h4>
-<h5>Note</h5>
+    </div>
+    <p>You can use DeautherX without display or button using Web Interface.</p>
 
-<ul>
-    <li>DeautherX web tools exclusively support I2C type displays and no other types.</li>
-    <li>It does not provide support for SPI displays or any other display types.</li>
-    <li>To flash other displays or utilize different board-compatible firmware, please use Arduino IDE.</li>
-</ul>
-  <h5>How To Flash DeautherX Firmware to ESP8266-based Board</h5>
+    <div id="descriptif"></div>
 
-  <ul>
-    <li>Select display type</li>
-    <li>Connect your ESP8266 board via USB</li>
-    <li>Click "Connect" and choose the serial port of your ESP</li>
-    <li>On Device Dashboard, click "Install"</li>
-  </ul>
+    <div class="button-row" align="center">
+      <esp-web-install-button class="invisible fade-in"></esp-web-install-button>
+    </div>
 
-  <h5>How To Open Web-Based Serial Monitor</h5>
+    <h5>Note</h5>
+    <ul>
+      <li><i class="fa fa-info-circle"></i> DeautherX web tools exclusively support I2C type displays.</li>
+      <li><i class="fa fa-exclamation-circle"></i> It does not provide support for SPI displays or other types.</li>
+      <li><i class="fa fa-clipboard-list"></i> To flash other displays or utilize different board-compatible firmware, please use Arduino IDE.</li>
+    </ul>
 
-  <ul>
-    <li>Select display type (It is not important to select the correct display type; it is just necessary for the program to run)</li>
-    <li>Connect your ESP8266 board via USB</li>
-    <li>Click "Connect" and choose the serial port of your ESP</li>
-    <li>On Device Dashboard, click "Logs and Console"</li>
-  </ul>
+    <h5>How To Flash DeautherX Firmware to ESP8266-based Board</h5>
+    <ul>
+      <li><i class="fa fa-check-circle"></i> Select display type.</li>
+      <li><i class="fa fa-usb"></i> Connect your ESP8266 board via USB.</li>
+      <li><i class="fa fa-plug"></i> Click "Connect" and choose the serial port of your ESP.</li>
+      <li><i class="fa fa-arrow-circle-down"></i> On Device Dashboard, click "Install".</li>
+    </ul>
+
+    <h5>How To Open Web-Based Serial Monitor</h5>
+    <ul>
+      <li><i class="fa fa-check-circle"></i> Select display type (correct type not necessary).</li>
+      <li><i class="fa fa-usb"></i> Connect your ESP8266 board via USB.</li>
+      <li><i class="fa fa-plug"></i> Click "Connect" and choose the serial port of your ESP.</li>
+      <li><i class="fa fa-terminal"></i> On Device Dashboard, click "Logs and Console".</li>
+    </ul>
+  </div>
+
+  <footer class="fade-in">
+    <p>Visit the DeautherX Web Tools GitHub repository to learn more: <a href="https://github.com/BlackTechX011/DeautherX_Web_Tools/" target="_blank">DeautherX</a></p>
+  </footer>
+
     <script type="module" src="https://unpkg.com/esp-web-tools@9.1.1/dist/web/install-button.js?module"></script>
 
   
